@@ -1,0 +1,17 @@
+Index: resources/views/livewire/crop-list.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/livewire/crop-list.blade.php b/resources/views/livewire/crop-list.blade.php
+--- a/resources/views/livewire/crop-list.blade.php	
++++ b/resources/views/livewire/crop-list.blade.php	(date 1740472697858)
+@@ -267,7 +267,7 @@
+                                 'bg-gray-300 text-gray-700': !row.Status
+                               }">
+                             <span x-text="row.Status ?? 'Unknown'"></span>
+-                        </span>
++                            </span>
+                         </td>
+                         <td class="px-4 py-3 truncate" x-text="row.Location ?? ''"></td>
+                     </tr>

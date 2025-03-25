@@ -1,0 +1,34 @@
+Index: resources/views/livewire/report-generator.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/livewire/report-generator.blade.php b/resources/views/livewire/report-generator.blade.php
+--- a/resources/views/livewire/report-generator.blade.php	
++++ b/resources/views/livewire/report-generator.blade.php	(date 1741325474032)
+@@ -1,13 +1,11 @@
+ <div
+     x-data="{
+-        // Local Alpine copies of start/end date
+-        startDate: '{{ $startDate }}',
+-        endDate:   '{{ $endDate }}',
++        startDate: @entangle('startDate').defer,
++        endDate:   @entangle('endDate').defer,
+ 
+-        // Called whenever user changes either date
+         updateReport() {
+-            // Emit to Livewire with new dates
+-            Livewire.emit('updateReportRange', this.startDate, this.endDate);
++            // In Livewire 3, we call the method on $wire
++            this.$wire.call('setDateRange', this.startDate, this.endDate);
+         }
+     }"
+     class="p-6 bg-white shadow-md rounded-lg"
+@@ -26,6 +24,7 @@
+                 class="border-gray-300 rounded-md shadow-sm w-full"
+             >
+         </div>
++
+         <!-- End Date -->
+         <div>
+             <label class="block text-sm font-medium">End Date</label>

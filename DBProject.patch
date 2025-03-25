@@ -1,0 +1,2621 @@
+Index: config/session.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/config/session.php b/config/session.php
+--- a/config/session.php	
++++ b/config/session.php	(date 1742912718105)
+@@ -19,8 +19,6 @@
+     */
+ 
+     'driver' => env('SESSION_DRIVER', 'database'),
+-    'session_driver' => env('SESSION_DRIVER', 'file'),
+-
+ 
+     /*
+     |--------------------------------------------------------------------------
+Index: bootstrap/cache/config.php
+===================================================================
+diff --git a/bootstrap/cache/config.php b/bootstrap/cache/config.php
+deleted file mode 100644
+--- a/bootstrap/cache/config.php	
++++ /dev/null	
+@@ -1,946 +0,0 @@
+-<?php return array (
+-  2 => 'broadcasting',
+-  4 => 'concurrency',
+-  5 => 'cors',
+-  8 => 'hashing',
+-  14 => 'view',
+-  'app' => 
+-  array (
+-    'name' => 'Laravel',
+-    'env' => 'local',
+-    'debug' => true,
+-    'url' => 'https://2816-180-190-134-129.ngrok-free.app',
+-    'frontend_url' => 'http://localhost:3000',
+-    'asset_url' => NULL,
+-    'timezone' => 'UTC',
+-    'locale' => 'en',
+-    'fallback_locale' => 'en',
+-    'faker_locale' => 'en_US',
+-    'cipher' => 'AES-256-CBC',
+-    'key' => 'base64:eqVTEbHnC8sYxz6mrqaMXdrCMTLhb1HAXrSGzz7dr+w=',
+-    'previous_keys' => 
+-    array (
+-    ),
+-    'maintenance' => 
+-    array (
+-      'driver' => 'file',
+-      'store' => 'database',
+-    ),
+-    'providers' => 
+-    array (
+-      0 => 'Illuminate\\Auth\\AuthServiceProvider',
+-      1 => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
+-      2 => 'Illuminate\\Bus\\BusServiceProvider',
+-      3 => 'Illuminate\\Cache\\CacheServiceProvider',
+-      4 => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
+-      5 => 'Illuminate\\Concurrency\\ConcurrencyServiceProvider',
+-      6 => 'Illuminate\\Cookie\\CookieServiceProvider',
+-      7 => 'Illuminate\\Database\\DatabaseServiceProvider',
+-      8 => 'Illuminate\\Encryption\\EncryptionServiceProvider',
+-      9 => 'Illuminate\\Filesystem\\FilesystemServiceProvider',
+-      10 => 'Illuminate\\Foundation\\Providers\\FoundationServiceProvider',
+-      11 => 'Illuminate\\Hashing\\HashServiceProvider',
+-      12 => 'Illuminate\\Mail\\MailServiceProvider',
+-      13 => 'Illuminate\\Notifications\\NotificationServiceProvider',
+-      14 => 'Illuminate\\Pagination\\PaginationServiceProvider',
+-      15 => 'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider',
+-      16 => 'Illuminate\\Pipeline\\PipelineServiceProvider',
+-      17 => 'Illuminate\\Queue\\QueueServiceProvider',
+-      18 => 'Illuminate\\Redis\\RedisServiceProvider',
+-      19 => 'Illuminate\\Session\\SessionServiceProvider',
+-      20 => 'Illuminate\\Translation\\TranslationServiceProvider',
+-      21 => 'Illuminate\\Validation\\ValidationServiceProvider',
+-      22 => 'Illuminate\\View\\ViewServiceProvider',
+-      23 => 'App\\Providers\\AppServiceProvider',
+-    ),
+-    'aliases' => 
+-    array (
+-      'App' => 'Illuminate\\Support\\Facades\\App',
+-      'Arr' => 'Illuminate\\Support\\Arr',
+-      'Artisan' => 'Illuminate\\Support\\Facades\\Artisan',
+-      'Auth' => 'Illuminate\\Support\\Facades\\Auth',
+-      'Blade' => 'Illuminate\\Support\\Facades\\Blade',
+-      'Broadcast' => 'Illuminate\\Support\\Facades\\Broadcast',
+-      'Bus' => 'Illuminate\\Support\\Facades\\Bus',
+-      'Cache' => 'Illuminate\\Support\\Facades\\Cache',
+-      'Concurrency' => 'Illuminate\\Support\\Facades\\Concurrency',
+-      'Config' => 'Illuminate\\Support\\Facades\\Config',
+-      'Context' => 'Illuminate\\Support\\Facades\\Context',
+-      'Cookie' => 'Illuminate\\Support\\Facades\\Cookie',
+-      'Crypt' => 'Illuminate\\Support\\Facades\\Crypt',
+-      'Date' => 'Illuminate\\Support\\Facades\\Date',
+-      'DB' => 'Illuminate\\Support\\Facades\\DB',
+-      'Eloquent' => 'Illuminate\\Database\\Eloquent\\Model',
+-      'Event' => 'Illuminate\\Support\\Facades\\Event',
+-      'File' => 'Illuminate\\Support\\Facades\\File',
+-      'Gate' => 'Illuminate\\Support\\Facades\\Gate',
+-      'Hash' => 'Illuminate\\Support\\Facades\\Hash',
+-      'Http' => 'Illuminate\\Support\\Facades\\Http',
+-      'Js' => 'Illuminate\\Support\\Js',
+-      'Lang' => 'Illuminate\\Support\\Facades\\Lang',
+-      'Log' => 'Illuminate\\Support\\Facades\\Log',
+-      'Mail' => 'Illuminate\\Support\\Facades\\Mail',
+-      'Notification' => 'Illuminate\\Support\\Facades\\Notification',
+-      'Number' => 'Illuminate\\Support\\Number',
+-      'Password' => 'Illuminate\\Support\\Facades\\Password',
+-      'Process' => 'Illuminate\\Support\\Facades\\Process',
+-      'Queue' => 'Illuminate\\Support\\Facades\\Queue',
+-      'RateLimiter' => 'Illuminate\\Support\\Facades\\RateLimiter',
+-      'Redirect' => 'Illuminate\\Support\\Facades\\Redirect',
+-      'Request' => 'Illuminate\\Support\\Facades\\Request',
+-      'Response' => 'Illuminate\\Support\\Facades\\Response',
+-      'Route' => 'Illuminate\\Support\\Facades\\Route',
+-      'Schedule' => 'Illuminate\\Support\\Facades\\Schedule',
+-      'Schema' => 'Illuminate\\Support\\Facades\\Schema',
+-      'Session' => 'Illuminate\\Support\\Facades\\Session',
+-      'Storage' => 'Illuminate\\Support\\Facades\\Storage',
+-      'Str' => 'Illuminate\\Support\\Str',
+-      'URL' => 'Illuminate\\Support\\Facades\\URL',
+-      'Uri' => 'Illuminate\\Support\\Uri',
+-      'Validator' => 'Illuminate\\Support\\Facades\\Validator',
+-      'View' => 'Illuminate\\Support\\Facades\\View',
+-      'Vite' => 'Illuminate\\Support\\Facades\\Vite',
+-    ),
+-  ),
+-  'auth' => 
+-  array (
+-    'defaults' => 
+-    array (
+-      'guard' => 'web',
+-      'passwords' => 'users',
+-    ),
+-    'guards' => 
+-    array (
+-      'web' => 
+-      array (
+-        'driver' => 'session',
+-        'provider' => 'users',
+-      ),
+-    ),
+-    'providers' => 
+-    array (
+-      'users' => 
+-      array (
+-        'driver' => 'eloquent',
+-        'model' => 'App\\Models\\User',
+-      ),
+-    ),
+-    'passwords' => 
+-    array (
+-      'users' => 
+-      array (
+-        'provider' => 'users',
+-        'table' => 'password_reset_tokens',
+-        'expire' => 60,
+-        'throttle' => 60,
+-      ),
+-    ),
+-    'password_timeout' => 10800,
+-  ),
+-  'cache' => 
+-  array (
+-    'default' => 'database',
+-    'stores' => 
+-    array (
+-      'array' => 
+-      array (
+-        'driver' => 'array',
+-        'serialize' => false,
+-      ),
+-      'database' => 
+-      array (
+-        'driver' => 'database',
+-        'connection' => NULL,
+-        'table' => 'cache',
+-        'lock_connection' => NULL,
+-        'lock_table' => NULL,
+-      ),
+-      'file' => 
+-      array (
+-        'driver' => 'file',
+-        'path' => 'C:\\Users\\admin\\Herd\\test2\\storage\\framework/cache/data',
+-        'lock_path' => 'C:\\Users\\admin\\Herd\\test2\\storage\\framework/cache/data',
+-      ),
+-      'memcached' => 
+-      array (
+-        'driver' => 'memcached',
+-        'persistent_id' => NULL,
+-        'sasl' => 
+-        array (
+-          0 => NULL,
+-          1 => NULL,
+-        ),
+-        'options' => 
+-        array (
+-        ),
+-        'servers' => 
+-        array (
+-          0 => 
+-          array (
+-            'host' => '127.0.0.1',
+-            'port' => 11211,
+-            'weight' => 100,
+-          ),
+-        ),
+-      ),
+-      'redis' => 
+-      array (
+-        'driver' => 'redis',
+-        'connection' => 'cache',
+-        'lock_connection' => 'default',
+-      ),
+-      'dynamodb' => 
+-      array (
+-        'driver' => 'dynamodb',
+-        'key' => '',
+-        'secret' => '',
+-        'region' => 'us-east-1',
+-        'table' => 'cache',
+-        'endpoint' => NULL,
+-      ),
+-      'octane' => 
+-      array (
+-        'driver' => 'octane',
+-      ),
+-    ),
+-    'prefix' => '',
+-  ),
+-  'charts' => 
+-  array (
+-    'default_library' => 'Chartjs',
+-  ),
+-  'database' => 
+-  array (
+-    'default' => 'mysql',
+-    'connections' => 
+-    array (
+-      'sqlite' => 
+-      array (
+-        'driver' => 'sqlite',
+-        'url' => NULL,
+-        'database' => 'laravel',
+-        'prefix' => '',
+-        'foreign_key_constraints' => true,
+-        'busy_timeout' => NULL,
+-        'journal_mode' => NULL,
+-        'synchronous' => NULL,
+-      ),
+-      'mysql' => 
+-      array (
+-        'driver' => 'mysql',
+-        'url' => NULL,
+-        'host' => '127.0.0.1',
+-        'port' => '3306',
+-        'database' => 'laravel',
+-        'username' => 'root',
+-        'password' => 'V@b314159265',
+-        'unix_socket' => '',
+-        'charset' => 'utf8mb4',
+-        'collation' => 'utf8mb4_unicode_ci',
+-        'prefix' => '',
+-        'prefix_indexes' => true,
+-        'strict' => true,
+-        'engine' => NULL,
+-        'options' => 
+-        array (
+-        ),
+-      ),
+-      'mariadb' => 
+-      array (
+-        'driver' => 'mariadb',
+-        'url' => NULL,
+-        'host' => '127.0.0.1',
+-        'port' => '3306',
+-        'database' => 'laravel',
+-        'username' => 'root',
+-        'password' => 'V@b314159265',
+-        'unix_socket' => '',
+-        'charset' => 'utf8mb4',
+-        'collation' => 'utf8mb4_unicode_ci',
+-        'prefix' => '',
+-        'prefix_indexes' => true,
+-        'strict' => true,
+-        'engine' => NULL,
+-        'options' => 
+-        array (
+-        ),
+-      ),
+-      'pgsql' => 
+-      array (
+-        'driver' => 'pgsql',
+-        'url' => NULL,
+-        'host' => '127.0.0.1',
+-        'port' => '3306',
+-        'database' => 'laravel',
+-        'username' => 'root',
+-        'password' => 'V@b314159265',
+-        'charset' => 'utf8',
+-        'prefix' => '',
+-        'prefix_indexes' => true,
+-        'search_path' => 'public',
+-        'sslmode' => 'prefer',
+-      ),
+-      'sqlsrv' => 
+-      array (
+-        'driver' => 'sqlsrv',
+-        'url' => NULL,
+-        'host' => '127.0.0.1',
+-        'port' => '3306',
+-        'database' => 'laravel',
+-        'username' => 'root',
+-        'password' => 'V@b314159265',
+-        'charset' => 'utf8',
+-        'prefix' => '',
+-        'prefix_indexes' => true,
+-      ),
+-    ),
+-    'migrations' => 
+-    array (
+-      'table' => 'migrations',
+-      'update_date_on_publish' => true,
+-    ),
+-    'redis' => 
+-    array (
+-      'client' => 'phpredis',
+-      'options' => 
+-      array (
+-        'cluster' => 'redis',
+-        'prefix' => 'laravel_database_',
+-      ),
+-      'default' => 
+-      array (
+-        'url' => NULL,
+-        'host' => '127.0.0.1',
+-        'username' => NULL,
+-        'password' => NULL,
+-        'port' => '6379',
+-        'database' => '0',
+-      ),
+-      'cache' => 
+-      array (
+-        'url' => NULL,
+-        'host' => '127.0.0.1',
+-        'username' => NULL,
+-        'password' => NULL,
+-        'port' => '6379',
+-        'database' => '1',
+-      ),
+-    ),
+-  ),
+-  'excel' => 
+-  array (
+-    'exports' => 
+-    array (
+-      'chunk_size' => 1000,
+-      'pre_calculate_formulas' => false,
+-      'strict_null_comparison' => false,
+-      'csv' => 
+-      array (
+-        'delimiter' => ',',
+-        'enclosure' => '"',
+-        'line_ending' => '
+-',
+-        'use_bom' => false,
+-        'include_separator_line' => false,
+-        'excel_compatibility' => false,
+-        'output_encoding' => '',
+-        'test_auto_detect' => true,
+-      ),
+-      'properties' => 
+-      array (
+-        'creator' => '',
+-        'lastModifiedBy' => '',
+-        'title' => '',
+-        'description' => '',
+-        'subject' => '',
+-        'keywords' => '',
+-        'category' => '',
+-        'manager' => '',
+-        'company' => '',
+-      ),
+-    ),
+-    'imports' => 
+-    array (
+-      'read_only' => true,
+-      'ignore_empty' => false,
+-      'heading_row' => 
+-      array (
+-        'formatter' => 'slug',
+-      ),
+-      'csv' => 
+-      array (
+-        'delimiter' => NULL,
+-        'enclosure' => '"',
+-        'escape_character' => '\\',
+-        'contiguous' => false,
+-        'input_encoding' => 'guess',
+-      ),
+-      'properties' => 
+-      array (
+-        'creator' => '',
+-        'lastModifiedBy' => '',
+-        'title' => '',
+-        'description' => '',
+-        'subject' => '',
+-        'keywords' => '',
+-        'category' => '',
+-        'manager' => '',
+-        'company' => '',
+-      ),
+-      'cells' => 
+-      array (
+-        'middleware' => 
+-        array (
+-        ),
+-      ),
+-    ),
+-    'extension_detector' => 
+-    array (
+-      'xlsx' => 'Xlsx',
+-      'xlsm' => 'Xlsx',
+-      'xltx' => 'Xlsx',
+-      'xltm' => 'Xlsx',
+-      'xls' => 'Xls',
+-      'xlt' => 'Xls',
+-      'ods' => 'Ods',
+-      'ots' => 'Ods',
+-      'slk' => 'Slk',
+-      'xml' => 'Xml',
+-      'gnumeric' => 'Gnumeric',
+-      'htm' => 'Html',
+-      'html' => 'Html',
+-      'csv' => 'Csv',
+-      'tsv' => 'Csv',
+-      'pdf' => 'Dompdf',
+-    ),
+-    'value_binder' => 
+-    array (
+-      'default' => 'Maatwebsite\\Excel\\DefaultValueBinder',
+-    ),
+-    'cache' => 
+-    array (
+-      'driver' => 'memory',
+-      'batch' => 
+-      array (
+-        'memory_limit' => 60000,
+-      ),
+-      'illuminate' => 
+-      array (
+-        'store' => NULL,
+-      ),
+-      'default_ttl' => 10800,
+-    ),
+-    'transactions' => 
+-    array (
+-      'handler' => 'db',
+-      'db' => 
+-      array (
+-        'connection' => NULL,
+-      ),
+-    ),
+-    'temporary_files' => 
+-    array (
+-      'local_path' => 'C:\\Users\\admin\\Herd\\test2\\storage\\framework/cache/laravel-excel',
+-      'local_permissions' => 
+-      array (
+-      ),
+-      'remote_disk' => NULL,
+-      'remote_prefix' => NULL,
+-      'force_resync_remote' => NULL,
+-    ),
+-  ),
+-  'filesystems' => 
+-  array (
+-    'default' => 'local',
+-    'disks' => 
+-    array (
+-      'local' => 
+-      array (
+-        'driver' => 'local',
+-        'root' => 'C:\\Users\\admin\\Herd\\test2\\storage\\app/private',
+-        'serve' => true,
+-        'throw' => false,
+-        'report' => false,
+-      ),
+-      'public' => 
+-      array (
+-        'driver' => 'local',
+-        'root' => 'C:\\Users\\admin\\Herd\\test2\\storage\\app/public',
+-        'url' => 'https://2816-180-190-134-129.ngrok-free.app/storage',
+-        'visibility' => 'public',
+-        'throw' => false,
+-        'report' => false,
+-      ),
+-      's3' => 
+-      array (
+-        'driver' => 's3',
+-        'key' => '',
+-        'secret' => '',
+-        'region' => 'us-east-1',
+-        'bucket' => '',
+-        'url' => NULL,
+-        'endpoint' => NULL,
+-        'use_path_style_endpoint' => false,
+-        'throw' => false,
+-        'report' => false,
+-      ),
+-    ),
+-    'links' => 
+-    array (
+-      'C:\\Users\\admin\\Herd\\test2\\public\\storage' => 'C:\\Users\\admin\\Herd\\test2\\storage\\app/public',
+-    ),
+-  ),
+-  'logging' => 
+-  array (
+-    'default' => 'stack',
+-    'deprecations' => 
+-    array (
+-      'channel' => NULL,
+-      'trace' => false,
+-    ),
+-    'channels' => 
+-    array (
+-      'stack' => 
+-      array (
+-        'driver' => 'stack',
+-        'channels' => 
+-        array (
+-          0 => 'single',
+-        ),
+-        'ignore_exceptions' => false,
+-      ),
+-      'single' => 
+-      array (
+-        'driver' => 'single',
+-        'path' => 'C:\\Users\\admin\\Herd\\test2\\storage\\logs/laravel.log',
+-        'level' => 'debug',
+-        'replace_placeholders' => true,
+-      ),
+-      'daily' => 
+-      array (
+-        'driver' => 'daily',
+-        'path' => 'C:\\Users\\admin\\Herd\\test2\\storage\\logs/laravel.log',
+-        'level' => 'debug',
+-        'days' => 14,
+-        'replace_placeholders' => true,
+-      ),
+-      'slack' => 
+-      array (
+-        'driver' => 'slack',
+-        'url' => NULL,
+-        'username' => 'Laravel Log',
+-        'emoji' => ':boom:',
+-        'level' => 'debug',
+-        'replace_placeholders' => true,
+-      ),
+-      'papertrail' => 
+-      array (
+-        'driver' => 'monolog',
+-        'level' => 'debug',
+-        'handler' => 'Monolog\\Handler\\SyslogUdpHandler',
+-        'handler_with' => 
+-        array (
+-          'host' => NULL,
+-          'port' => NULL,
+-          'connectionString' => 'tls://:',
+-        ),
+-        'processors' => 
+-        array (
+-          0 => 'Monolog\\Processor\\PsrLogMessageProcessor',
+-        ),
+-      ),
+-      'stderr' => 
+-      array (
+-        'driver' => 'monolog',
+-        'level' => 'debug',
+-        'handler' => 'Monolog\\Handler\\StreamHandler',
+-        'formatter' => NULL,
+-        'with' => 
+-        array (
+-          'stream' => 'php://stderr',
+-        ),
+-        'processors' => 
+-        array (
+-          0 => 'Monolog\\Processor\\PsrLogMessageProcessor',
+-        ),
+-      ),
+-      'syslog' => 
+-      array (
+-        'driver' => 'syslog',
+-        'level' => 'debug',
+-        'facility' => 8,
+-        'replace_placeholders' => true,
+-      ),
+-      'errorlog' => 
+-      array (
+-        'driver' => 'errorlog',
+-        'level' => 'debug',
+-        'replace_placeholders' => true,
+-      ),
+-      'null' => 
+-      array (
+-        'driver' => 'monolog',
+-        'handler' => 'Monolog\\Handler\\NullHandler',
+-      ),
+-      'emergency' => 
+-      array (
+-        'path' => 'C:\\Users\\admin\\Herd\\test2\\storage\\logs/laravel.log',
+-      ),
+-    ),
+-  ),
+-  'mail' => 
+-  array (
+-    'default' => 'log',
+-    'mailers' => 
+-    array (
+-      'smtp' => 
+-      array (
+-        'transport' => 'smtp',
+-        'scheme' => NULL,
+-        'url' => NULL,
+-        'host' => '127.0.0.1',
+-        'port' => '2525',
+-        'username' => NULL,
+-        'password' => NULL,
+-        'timeout' => NULL,
+-        'local_domain' => '2816-180-190-134-129.ngrok-free.app',
+-      ),
+-      'ses' => 
+-      array (
+-        'transport' => 'ses',
+-      ),
+-      'postmark' => 
+-      array (
+-        'transport' => 'postmark',
+-      ),
+-      'resend' => 
+-      array (
+-        'transport' => 'resend',
+-      ),
+-      'sendmail' => 
+-      array (
+-        'transport' => 'sendmail',
+-        'path' => '/usr/sbin/sendmail -bs -i',
+-      ),
+-      'log' => 
+-      array (
+-        'transport' => 'log',
+-        'channel' => NULL,
+-      ),
+-      'array' => 
+-      array (
+-        'transport' => 'array',
+-      ),
+-      'failover' => 
+-      array (
+-        'transport' => 'failover',
+-        'mailers' => 
+-        array (
+-          0 => 'smtp',
+-          1 => 'log',
+-        ),
+-      ),
+-      'roundrobin' => 
+-      array (
+-        'transport' => 'roundrobin',
+-        'mailers' => 
+-        array (
+-          0 => 'ses',
+-          1 => 'postmark',
+-        ),
+-      ),
+-    ),
+-    'from' => 
+-    array (
+-      'address' => 'hello@example.com',
+-      'name' => 'Laravel',
+-    ),
+-    'markdown' => 
+-    array (
+-      'theme' => 'default',
+-      'paths' => 
+-      array (
+-        0 => 'C:\\Users\\admin\\Herd\\test2\\resources\\views/vendor/mail',
+-      ),
+-    ),
+-  ),
+-  'queue' => 
+-  array (
+-    'default' => 'database',
+-    'connections' => 
+-    array (
+-      'sync' => 
+-      array (
+-        'driver' => 'sync',
+-      ),
+-      'database' => 
+-      array (
+-        'driver' => 'database',
+-        'connection' => NULL,
+-        'table' => 'jobs',
+-        'queue' => 'default',
+-        'retry_after' => 90,
+-        'after_commit' => false,
+-      ),
+-      'beanstalkd' => 
+-      array (
+-        'driver' => 'beanstalkd',
+-        'host' => 'localhost',
+-        'queue' => 'default',
+-        'retry_after' => 90,
+-        'block_for' => 0,
+-        'after_commit' => false,
+-      ),
+-      'sqs' => 
+-      array (
+-        'driver' => 'sqs',
+-        'key' => '',
+-        'secret' => '',
+-        'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
+-        'queue' => 'default',
+-        'suffix' => NULL,
+-        'region' => 'us-east-1',
+-        'after_commit' => false,
+-      ),
+-      'redis' => 
+-      array (
+-        'driver' => 'redis',
+-        'connection' => 'default',
+-        'queue' => 'default',
+-        'retry_after' => 90,
+-        'block_for' => NULL,
+-        'after_commit' => false,
+-      ),
+-    ),
+-    'batching' => 
+-    array (
+-      'database' => 'mysql',
+-      'table' => 'job_batches',
+-    ),
+-    'failed' => 
+-    array (
+-      'driver' => 'database-uuids',
+-      'database' => 'mysql',
+-      'table' => 'failed_jobs',
+-    ),
+-  ),
+-  'services' => 
+-  array (
+-    'postmark' => 
+-    array (
+-      'token' => NULL,
+-    ),
+-    'ses' => 
+-    array (
+-      'key' => '',
+-      'secret' => '',
+-      'region' => 'us-east-1',
+-    ),
+-    'resend' => 
+-    array (
+-      'key' => NULL,
+-    ),
+-    'slack' => 
+-    array (
+-      'notifications' => 
+-      array (
+-        'bot_user_oauth_token' => NULL,
+-        'channel' => NULL,
+-      ),
+-    ),
+-  ),
+-  'session' => 
+-  array (
+-    'driver' => 'database',
+-    'lifetime' => 120,
+-    'expire_on_close' => false,
+-    'encrypt' => false,
+-    'files' => 'C:\\Users\\admin\\Herd\\test2\\storage\\framework/sessions',
+-    'connection' => NULL,
+-    'table' => 'sessions',
+-    'store' => NULL,
+-    'lottery' => 
+-    array (
+-      0 => 2,
+-      1 => 100,
+-    ),
+-    'cookie' => 'laravel_session',
+-    'path' => '/',
+-    'domain' => NULL,
+-    'secure' => NULL,
+-    'http_only' => true,
+-    'same_site' => 'lax',
+-    'partitioned' => false,
+-  ),
+-  'broadcasting' => 
+-  array (
+-    'default' => 'log',
+-    'connections' => 
+-    array (
+-      'reverb' => 
+-      array (
+-        'driver' => 'reverb',
+-        'key' => NULL,
+-        'secret' => NULL,
+-        'app_id' => NULL,
+-        'options' => 
+-        array (
+-          'host' => NULL,
+-          'port' => 443,
+-          'scheme' => 'https',
+-          'useTLS' => true,
+-        ),
+-        'client_options' => 
+-        array (
+-        ),
+-      ),
+-      'pusher' => 
+-      array (
+-        'driver' => 'pusher',
+-        'key' => NULL,
+-        'secret' => NULL,
+-        'app_id' => NULL,
+-        'options' => 
+-        array (
+-          'cluster' => NULL,
+-          'host' => 'api-mt1.pusher.com',
+-          'port' => 443,
+-          'scheme' => 'https',
+-          'encrypted' => true,
+-          'useTLS' => true,
+-        ),
+-        'client_options' => 
+-        array (
+-        ),
+-      ),
+-      'ably' => 
+-      array (
+-        'driver' => 'ably',
+-        'key' => NULL,
+-      ),
+-      'log' => 
+-      array (
+-        'driver' => 'log',
+-      ),
+-      'null' => 
+-      array (
+-        'driver' => 'null',
+-      ),
+-    ),
+-  ),
+-  'concurrency' => 
+-  array (
+-    'default' => 'process',
+-  ),
+-  'cors' => 
+-  array (
+-    'paths' => 
+-    array (
+-      0 => 'api/*',
+-      1 => 'sanctum/csrf-cookie',
+-    ),
+-    'allowed_methods' => 
+-    array (
+-      0 => '*',
+-    ),
+-    'allowed_origins' => 
+-    array (
+-      0 => '*',
+-    ),
+-    'allowed_origins_patterns' => 
+-    array (
+-    ),
+-    'allowed_headers' => 
+-    array (
+-      0 => '*',
+-    ),
+-    'exposed_headers' => 
+-    array (
+-    ),
+-    'max_age' => 0,
+-    'supports_credentials' => false,
+-  ),
+-  'hashing' => 
+-  array (
+-    'driver' => 'bcrypt',
+-    'bcrypt' => 
+-    array (
+-      'rounds' => '12',
+-      'verify' => true,
+-    ),
+-    'argon' => 
+-    array (
+-      'memory' => 65536,
+-      'threads' => 1,
+-      'time' => 4,
+-      'verify' => true,
+-    ),
+-    'rehash_on_login' => true,
+-  ),
+-  'view' => 
+-  array (
+-    'paths' => 
+-    array (
+-      0 => 'C:\\Users\\admin\\Herd\\test2\\resources\\views',
+-    ),
+-    'compiled' => 'C:\\Users\\admin\\Herd\\test2\\storage\\framework\\views',
+-  ),
+-  'livewire' => 
+-  array (
+-    'class_namespace' => 'App\\Livewire',
+-    'view_path' => 'C:\\Users\\admin\\Herd\\test2\\resources\\views/livewire',
+-    'layout' => 'components.layouts.app',
+-    'lazy_placeholder' => NULL,
+-    'temporary_file_upload' => 
+-    array (
+-      'disk' => NULL,
+-      'rules' => NULL,
+-      'directory' => NULL,
+-      'middleware' => NULL,
+-      'preview_mimes' => 
+-      array (
+-        0 => 'png',
+-        1 => 'gif',
+-        2 => 'bmp',
+-        3 => 'svg',
+-        4 => 'wav',
+-        5 => 'mp4',
+-        6 => 'mov',
+-        7 => 'avi',
+-        8 => 'wmv',
+-        9 => 'mp3',
+-        10 => 'm4a',
+-        11 => 'jpg',
+-        12 => 'jpeg',
+-        13 => 'mpga',
+-        14 => 'webp',
+-        15 => 'wma',
+-      ),
+-      'max_upload_time' => 5,
+-      'cleanup' => true,
+-    ),
+-    'render_on_redirect' => false,
+-    'legacy_model_binding' => false,
+-    'inject_assets' => true,
+-    'navigate' => 
+-    array (
+-      'show_progress_bar' => true,
+-      'progress_bar_color' => '#2299dd',
+-    ),
+-    'inject_morph_markers' => true,
+-    'pagination_theme' => 'tailwind',
+-  ),
+-  'tinker' => 
+-  array (
+-    'commands' => 
+-    array (
+-    ),
+-    'alias' => 
+-    array (
+-    ),
+-    'dont_alias' => 
+-    array (
+-      0 => 'App\\Nova',
+-    ),
+-  ),
+-);
+Index: bootstrap/cache/events.php
+===================================================================
+diff --git a/bootstrap/cache/events.php b/bootstrap/cache/events.php
+deleted file mode 100644
+--- a/bootstrap/cache/events.php	
++++ /dev/null	
+@@ -1,5 +0,0 @@
+-<?php return array (
+-  'Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider' => 
+-  array (
+-  ),
+-);
+\ No newline at end of file
+Index: bootstrap/cache/routes-v7.php
+===================================================================
+diff --git a/bootstrap/cache/routes-v7.php b/bootstrap/cache/routes-v7.php
+deleted file mode 100644
+--- a/bootstrap/cache/routes-v7.php	
++++ /dev/null	
+@@ -1,1616 +0,0 @@
+-<?php
+-
+-app('router')->setCompiledRoutes(
+-    array (
+-  'compiled' => 
+-  array (
+-    0 => false,
+-    1 => 
+-    array (
+-      '/livewire/update' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'livewire.update',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'POST' => 0,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/livewire/livewire.js' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'generated::mGDWOP9OWcuA07kM',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/livewire/livewire.min.js.map' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'generated::ht3CTaYz3VXI1F7U',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/livewire/upload-file' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'livewire.upload-file',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'POST' => 0,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/up' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'generated::Cf5D6oMw5WU0cgVf',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/planting-records' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'planting-record-list',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/harvest-records' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'harvest-record-list',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/crops' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'crop-list',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/crop-add' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'crop-add',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/fields' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'field-list',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/crop-status' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'generated::xZULbfboLpH88HOI',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/reports' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'report-generator',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/dashboard' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'dashboard',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'generated::ztM0J2WrR3wihk4u',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-        1 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'generated::p56cxwbC7kRbaQV2',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-            'POST' => 2,
+-            'PUT' => 3,
+-            'PATCH' => 4,
+-            'DELETE' => 5,
+-            'OPTIONS' => 6,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/users' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'user-list',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/report/export' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'report.export',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/login' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'login',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-        1 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'generated::Ldk1BiX5Y8rQKxrr',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'POST' => 0,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/register' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'register',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-        1 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'generated::FlsH9bA7LlMTEPpm',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'POST' => 0,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/logout' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'logout',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'POST' => 0,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/main' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'main',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/admin-login' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'admin.login',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'POST' => 0,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/admin-logout' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'admin.logout',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'POST' => 0,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-      '/api/years' => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'generated::G04PIhgohyVkeSSh',
+-          ),
+-          1 => NULL,
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => NULL,
+-        ),
+-      ),
+-    ),
+-    2 => 
+-    array (
+-      0 => '{^(?|/livewire/preview\\-file/([^/]++)(*:39)|/storage/(.*)(*:59))/?$}sDu',
+-    ),
+-    3 => 
+-    array (
+-      39 => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'livewire.preview-file',
+-          ),
+-          1 => 
+-          array (
+-            0 => 'filename',
+-          ),
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => true,
+-          6 => NULL,
+-        ),
+-      ),
+-      59 => 
+-      array (
+-        0 => 
+-        array (
+-          0 => 
+-          array (
+-            '_route' => 'storage.local',
+-          ),
+-          1 => 
+-          array (
+-            0 => 'path',
+-          ),
+-          2 => 
+-          array (
+-            'GET' => 0,
+-            'HEAD' => 1,
+-          ),
+-          3 => NULL,
+-          4 => false,
+-          5 => true,
+-          6 => NULL,
+-        ),
+-        1 => 
+-        array (
+-          0 => NULL,
+-          1 => NULL,
+-          2 => NULL,
+-          3 => NULL,
+-          4 => false,
+-          5 => false,
+-          6 => 0,
+-        ),
+-      ),
+-    ),
+-    4 => NULL,
+-  ),
+-  'attributes' => 
+-  array (
+-    'livewire.update' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'POST',
+-      ),
+-      'uri' => 'livewire/update',
+-      'action' => 
+-      array (
+-        'uses' => 'Livewire\\Mechanisms\\HandleRequests\\HandleRequests@handleUpdate',
+-        'controller' => 'Livewire\\Mechanisms\\HandleRequests\\HandleRequests@handleUpdate',
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'as' => 'livewire.update',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'generated::mGDWOP9OWcuA07kM' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'livewire/livewire.js',
+-      'action' => 
+-      array (
+-        'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
+-        'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
+-        'as' => 'generated::mGDWOP9OWcuA07kM',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'generated::ht3CTaYz3VXI1F7U' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'livewire/livewire.min.js.map',
+-      'action' => 
+-      array (
+-        'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
+-        'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
+-        'as' => 'generated::ht3CTaYz3VXI1F7U',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'livewire.upload-file' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'POST',
+-      ),
+-      'uri' => 'livewire/upload-file',
+-      'action' => 
+-      array (
+-        'uses' => 'Livewire\\Features\\SupportFileUploads\\FileUploadController@handle',
+-        'controller' => 'Livewire\\Features\\SupportFileUploads\\FileUploadController@handle',
+-        'as' => 'livewire.upload-file',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'livewire.preview-file' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'livewire/preview-file/{filename}',
+-      'action' => 
+-      array (
+-        'uses' => 'Livewire\\Features\\SupportFileUploads\\FilePreviewController@handle',
+-        'controller' => 'Livewire\\Features\\SupportFileUploads\\FilePreviewController@handle',
+-        'as' => 'livewire.preview-file',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'generated::Cf5D6oMw5WU0cgVf' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'up',
+-      'action' => 
+-      array (
+-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:830:"function () {
+-                    $exception = null;
+-
+-                    try {
+-                        \\Illuminate\\Support\\Facades\\Event::dispatch(new \\Illuminate\\Foundation\\Events\\DiagnosingHealth);
+-                    } catch (\\Throwable $e) {
+-                        if (app()->hasDebugModeEnabled()) {
+-                            throw $e;
+-                        }
+-
+-                        report($e);
+-
+-                        $exception = $e->getMessage();
+-                    }
+-
+-                    return response(\\Illuminate\\Support\\Facades\\View::file(\'C:\\\\Users\\\\admin\\\\Herd\\\\test2\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\', [
+-                        \'exception\' => $exception,
+-                    ]), status: $exception ? 500 : 200);
+-                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"000000000000072c0000000000000000";}}',
+-        'as' => 'generated::Cf5D6oMw5WU0cgVf',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'planting-record-list' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'planting-records',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Livewire\\PlantingRecordList@__invoke',
+-        'controller' => 'App\\Livewire\\PlantingRecordList',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'planting-record-list',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'harvest-record-list' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'harvest-records',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Livewire\\HarvestRecordList@__invoke',
+-        'controller' => 'App\\Livewire\\HarvestRecordList',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'harvest-record-list',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'crop-list' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'crops',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Livewire\\CropList@__invoke',
+-        'controller' => 'App\\Livewire\\CropList',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'crop-list',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'crop-add' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'crop-add',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Livewire\\CropAdd@__invoke',
+-        'controller' => 'App\\Livewire\\CropAdd',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'crop-add',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'field-list' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'fields',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-          1 => 'auth',
+-          2 => 'admin',
+-        ),
+-        'uses' => 'App\\Livewire\\FieldList@__invoke',
+-        'controller' => 'App\\Livewire\\FieldList',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'field-list',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'generated::xZULbfboLpH88HOI' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'crop-status',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Livewire\\CropStatusTracker@__invoke',
+-        'controller' => 'App\\Livewire\\CropStatusTracker',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'generated::xZULbfboLpH88HOI',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'report-generator' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'reports',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Livewire\\ReportGenerator@__invoke',
+-        'controller' => 'App\\Livewire\\ReportGenerator',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'report-generator',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'dashboard' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'dashboard',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Livewire\\Dashboard@__invoke',
+-        'controller' => 'App\\Livewire\\Dashboard',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'dashboard',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'generated::ztM0J2WrR3wihk4u' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => '/',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Livewire\\Dashboard@__invoke',
+-        'controller' => 'App\\Livewire\\Dashboard',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'generated::ztM0J2WrR3wihk4u',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'generated::p56cxwbC7kRbaQV2' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-        2 => 'POST',
+-        3 => 'PUT',
+-        4 => 'PATCH',
+-        5 => 'DELETE',
+-        6 => 'OPTIONS',
+-      ),
+-      'uri' => '/',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => '\\Illuminate\\Routing\\RedirectController@__invoke',
+-        'controller' => '\\Illuminate\\Routing\\RedirectController',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'generated::p56cxwbC7kRbaQV2',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-        'destination' => '/login',
+-        'status' => 302,
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'user-list' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'users',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-          1 => 'auth',
+-          2 => 'admin',
+-        ),
+-        'uses' => 'App\\Livewire\\UserList@__invoke',
+-        'controller' => 'App\\Livewire\\UserList',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'user-list',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'report.export' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'report/export',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Livewire\\ReportGenerator@export',
+-        'controller' => 'App\\Livewire\\ReportGenerator@export',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'report.export',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'login' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'login',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Http\\Controllers\\AuthController@showLogin',
+-        'controller' => 'App\\Http\\Controllers\\AuthController@showLogin',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'login',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'generated::Ldk1BiX5Y8rQKxrr' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'POST',
+-      ),
+-      'uri' => 'login',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Http\\Controllers\\AuthController@login',
+-        'controller' => 'App\\Http\\Controllers\\AuthController@login',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'generated::Ldk1BiX5Y8rQKxrr',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'register' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'register',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Http\\Controllers\\AuthController@showRegister',
+-        'controller' => 'App\\Http\\Controllers\\AuthController@showRegister',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'register',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'generated::FlsH9bA7LlMTEPpm' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'POST',
+-      ),
+-      'uri' => 'register',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Http\\Controllers\\AuthController@register',
+-        'controller' => 'App\\Http\\Controllers\\AuthController@register',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'generated::FlsH9bA7LlMTEPpm',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'logout' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'POST',
+-      ),
+-      'uri' => 'logout',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'App\\Http\\Controllers\\AuthController@logout',
+-        'controller' => 'App\\Http\\Controllers\\AuthController@logout',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'logout',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'main' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'main',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-          1 => 'auth',
+-        ),
+-        'uses' => '\\Illuminate\\Routing\\ViewController@__invoke',
+-        'controller' => '\\Illuminate\\Routing\\ViewController',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'main',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-        'view' => 'layouts.app',
+-        'data' => 
+-        array (
+-        ),
+-        'status' => 200,
+-        'headers' => 
+-        array (
+-        ),
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'admin.login' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'POST',
+-      ),
+-      'uri' => 'admin-login',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:373:"function (\\Illuminate\\Http\\Request $request) {
+-    if (\\Illuminate\\Support\\Facades\\Hash::check($request->admin_password, \\Illuminate\\Support\\Facades\\Hash::make(env(\'ADMIN_PASSWORD\')))) {
+-        \\Illuminate\\Support\\Facades\\Session::put(\'is_admin\', true);
+-        return redirect()->back();
+-    }
+-    return back()->withErrors([\'admin_password\' => \'Incorrect password.\']);
+-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007410000000000000000";}}',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'admin.login',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'admin.logout' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'POST',
+-      ),
+-      'uri' => 'admin-logout',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:107:"function () {
+-    \\Illuminate\\Support\\Facades\\Session::forget(\'is_admin\');
+-    return redirect()->back();
+-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007440000000000000000";}}',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'admin.logout',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'generated::G04PIhgohyVkeSSh' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'api/years',
+-      'action' => 
+-      array (
+-        'middleware' => 
+-        array (
+-          0 => 'web',
+-        ),
+-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:381:"function () {
+-    $plantedYears = \\App\\Models\\PlantingRecord::selectRaw(\'YEAR(DatePlanted) as year\')->distinct()->pluck(\'year\');
+-    $harvestedYears = \\Illuminate\\Routing\\HarvestRecord::selectRaw(\'YEAR(DateHarvested) as year\')->distinct()->pluck(\'year\');
+-
+-    return response()->json([
+-        \'plantedYears\' => $plantedYears,
+-        \'harvestedYears\' => $harvestedYears,
+-    ]);
+-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007460000000000000000";}}',
+-        'namespace' => NULL,
+-        'prefix' => '',
+-        'where' => 
+-        array (
+-        ),
+-        'as' => 'generated::G04PIhgohyVkeSSh',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-    'storage.local' => 
+-    array (
+-      'methods' => 
+-      array (
+-        0 => 'GET',
+-        1 => 'HEAD',
+-      ),
+-      'uri' => 'storage/{path}',
+-      'action' => 
+-      array (
+-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:3:{s:4:"disk";s:5:"local";s:6:"config";a:5:{s:6:"driver";s:5:"local";s:4:"root";s:45:"C:\\Users\\admin\\Herd\\test2\\storage\\app/private";s:5:"serve";b:1;s:5:"throw";b:0;s:6:"report";b:0;}s:12:"isProduction";b:0;}s:8:"function";s:323:"function (\\Illuminate\\Http\\Request $request, string $path) use ($disk, $config, $isProduction) {
+-                    return (new \\Illuminate\\Filesystem\\ServeFile(
+-                        $disk,
+-                        $config,
+-                        $isProduction
+-                    ))($request, $path);
+-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"000000000000073a0000000000000000";}}',
+-        'as' => 'storage.local',
+-      ),
+-      'fallback' => false,
+-      'defaults' => 
+-      array (
+-      ),
+-      'wheres' => 
+-      array (
+-        'path' => '.*',
+-      ),
+-      'bindingFields' => 
+-      array (
+-      ),
+-      'lockSeconds' => NULL,
+-      'waitSeconds' => NULL,
+-      'withTrashed' => false,
+-    ),
+-  ),
+-)
+-);
+Index: resources/views/livewire/user-list.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/livewire/user-list.blade.php b/resources/views/livewire/user-list.blade.php
+--- a/resources/views/livewire/user-list.blade.php	
++++ b/resources/views/livewire/user-list.blade.php	(date 1742912718088)
+@@ -1,5 +1,5 @@
+ <div class="bg-white p-6 shadow-md rounded-lg">
+-    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Farmer List</h2>
++    <h2 class="text-2xl font-semibold text-gray-700 mb-4">User List</h2>
+ 
+     @if (session()->has('success'))
+         <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4">

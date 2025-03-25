@@ -1,0 +1,19 @@
+Index: app/Livewire/ReportGenerator.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/Livewire/ReportGenerator.php b/app/Livewire/ReportGenerator.php
+--- a/app/Livewire/ReportGenerator.php	
++++ b/app/Livewire/ReportGenerator.php	(date 1742313571607)
+@@ -214,6 +214,10 @@
+                 ]
+             ],
+             'options' => [
++                'plugins' => [
++                    'tooltip' => ['enabled' => true, 'mode' => 'index', 'intersect' => false],
++                    'legend' => ['display' => true, 'onClick' => 'toggleDataset']
++                ],
+                 'scales' => [
+                     'x' => [
+                         'ticks' => [

@@ -1,0 +1,16 @@
+Index: app/Http/Controllers/AuthController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/Http/Controllers/AuthController.php b/app/Http/Controllers/AuthController.php
+--- a/app/Http/Controllers/AuthController.php	
++++ b/app/Http/Controllers/AuthController.php	(date 1742876774651)
+@@ -5,6 +5,7 @@
+ use Illuminate\Http\Request;
+ use Illuminate\Support\Facades\Auth;
+ use Illuminate\Support\Facades\Hash;
++use Illuminate\Support\Facades\Session;
+ use App\Models\User;
+ 
+ class AuthController extends Controller

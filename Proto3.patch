@@ -1,0 +1,26 @@
+Index: app/Livewire/ReportGenerator.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/Livewire/ReportGenerator.php b/app/Livewire/ReportGenerator.php
+--- a/app/Livewire/ReportGenerator.php	
++++ b/app/Livewire/ReportGenerator.php	(date 1741529442021)
+@@ -10,7 +10,7 @@
+ class ReportGenerator extends Component
+ {
+     use WithPagination;
+-    public $startDate, $endDate, $totalYield = 0, $totalYieldChart = [], $timeComparisonChart = [], $fieldProductivityChart = [], $cropDistributionChart = [], $yieldPerAreaChart = [];
++    public $startDate, $endDate, $totalYield = 0, $totalYieldChart = [], $timeComparisonChart = [], $fieldProductivityChart = [], $cropDistributionChart = [], $yieldPerAreaChart = [], $timeToHarvestChart = [];
+ 
+     public function mount()
+     {
+@@ -216,6 +216,8 @@
+             'timeComparisonChart'    => $this->timeComparisonChart,
+             'fieldProductivityChart' => $this->fieldProductivityChart,
+             'cropDistributionChart'  => $this->cropDistributionChart,
++            'yieldPerAreaChart'      => $this->yieldPerAreaChart,
++            'timeToHarvestChart'     => $this->timeToHarvestChart,
+         ])->extends('layouts.app');
+     }
+ }

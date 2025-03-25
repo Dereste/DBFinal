@@ -1,0 +1,40 @@
+Index: resources/views/layouts/app.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/layouts/app.blade.php b/resources/views/layouts/app.blade.php
+--- a/resources/views/layouts/app.blade.php	
++++ b/resources/views/layouts/app.blade.php	(date 1741746406375)
+@@ -47,7 +47,30 @@
+                     @php
+                         $cropManagementActive = request()->routeIs('planting-record-list', 'harvest-record-list', 'crop-list');
+                     @endphp
+-                    
++                    <a href="{{ route('crop-add') }}"
++                       class="flex items-center gap-3 text-base font-medium {{ request()->routeIs('crop-add') ? 'text-green-600' : 'hover:text-green-600' }}">
++                        <span></span> Crop Management
++                    </a>
++                    <ul class="pl-8 mt-1 space-y-1 text-sm text-gray-400">
++                        <li>
++                            <a href="{{ route('planting-record-list') }}"
++                               class="{{ request()->routeIs('planting-record-list') ? 'text-green-600 font-semibold' : 'hover:text-green-600' }}">
++                                • Plant
++                            </a>
++                        </li>
++                        <li>
++                            <a href="{{ route('harvest-record-list') }}"
++                               class="{{ request()->routeIs('harvest-record-list') ? 'text-green-600 font-semibold' : 'hover:text-green-600' }}">
++                                • Harvest
++                            </a>
++                        </li>
++                        <li>
++                            <a href="{{ route('crop-list') }}"
++                               class="{{ request()->routeIs('crop-list') ? 'text-green-600 font-semibold' : 'hover:text-green-600' }}">
++                                • Crop
++                            </a>
++                        </li>
++                    </ul>
+                 </li>
+                 <li>
+                     <a href="{{ route('field-list') }}"

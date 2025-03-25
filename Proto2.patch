@@ -1,0 +1,184 @@
+Index: app/Livewire/ReportGenerator.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/Livewire/ReportGenerator.php b/app/Livewire/ReportGenerator.php
+--- a/app/Livewire/ReportGenerator.php	
++++ b/app/Livewire/ReportGenerator.php	(date 1741526765255)
+@@ -10,7 +10,7 @@
+ class ReportGenerator extends Component
+ {
+     use WithPagination;
+-    public $startDate, $endDate, $totalYield = 0, $totalYieldChart = [], $timeComparisonChart = [], $fieldProductivityChart = [], $cropDistributionChart = [], $yieldPerAreaChart = [], $timeToHarvestChart = [];
++    public $startDate, $endDate, $totalYield = 0, $totalYieldChart = [], $timeComparisonChart = [], $fieldProductivityChart = [], $cropDistributionChart = [], $yieldPerAreaChart = [];
+ 
+     public function mount()
+     {
+@@ -181,25 +181,6 @@
+             'values' => array_column($yieldPerArea, 'yieldPerUnit'),
+         ];
+ 
+-        // Time-to-Harvest Analysis (Actual vs. Expected)
+-        $timeToHarvestData = HarvestRecord::join('planting_records', 'harvest_records.PlantingID', '=', 'planting_records.PlantingID')
+-            ->join('crops', 'harvest_records.CropID', '=', 'crops.CropID')
+-            ->whereBetween(DB::raw('DATE(harvest_records.DateHarvested)'), [$this->startDate, $this->endDate])
+-            ->select(
+-                DB::raw('DATE(harvest_records.DateHarvested) as harvest_date'),
+-                DB::raw('AVG(DATEDIFF(harvest_records.DateHarvested, planting_records.DatePlanted)) as actual_days'),
+-                DB::raw('AVG(crops.HarvestTime) as expected_days')
+-            )
+-            ->groupBy(DB::raw('DATE(harvest_records.DateHarvested)'))
+-            ->orderBy('harvest_date', 'asc')
+-            ->get();
+-
+-        $this->timeToHarvestChart = [
+-            'labels'   => $timeToHarvestData->pluck('harvest_date')->toArray(),
+-            'actual'   => $timeToHarvestData->pluck('actual_days')->toArray(),
+-            'expected' => $timeToHarvestData->pluck('expected_days')->toArray(),
+-        ];
+-
+     }
+     public function render()
+     {
+@@ -215,8 +196,6 @@
+             'timeComparisonChart'    => $this->timeComparisonChart,
+             'fieldProductivityChart' => $this->fieldProductivityChart,
+             'cropDistributionChart'  => $this->cropDistributionChart,
+-            'yieldPerAreaChart'      => $this->yieldPerAreaChart,
+-            'timeToHarvestChart'     => $this->timeToHarvestChart,
+         ])->extends('layouts.app');
+     }
+ }
+Index: resources/views/livewire/report-generator.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/livewire/report-generator.blade.php b/resources/views/livewire/report-generator.blade.php
+--- a/resources/views/livewire/report-generator.blade.php	
++++ b/resources/views/livewire/report-generator.blade.php	(date 1741527204201)
+@@ -31,16 +31,6 @@
+         <!-- Charts Section (Fixed Height) -->
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+ 
+-            <!-- Time-to-Harvest Analysis Chart -->
+-            @if(isset($timeToHarvestChart) && isset($timeToHarvestChart['labels']) && count($timeToHarvestChart['labels']) > 0)
+-                <div wire:ignore class="bg-white p-4 shadow rounded-lg h-64">
+-                    <h3 class="text-lg font-bold text-gray-700 mb-2">Time-to-Harvest Analysis</h3>
+-                    <div wire:ignore class="relative aspect-video">
+-                        <canvas id="timeToHarvestChartCanvas" class="absolute inset-0"></canvas>
+-                    </div>
+-                </div>
+-            @endif
+-
+             @if(isset($yieldPerAreaChart))
+                 <div wire:ignore class="bg-white p-4 shadow rounded-lg h-64">
+                     <h3 class="text-lg font-bold text-gray-700 mb-2">Yield per Unit Area (kg/ha)</h3>
+@@ -49,44 +39,43 @@
+             @endif
+ 
+             @if(isset($totalYieldChart))
+-                <div class="bg-white p-4 shadow rounded-lg">
+-                    <h3 class="text-lg font-bold text-gray-700 mb-2">Total Yield</h3>
+-                    <!-- Aspect Ratio Container for Responsive Chart -->
+-                    <div wire:ignore class="relative aspect-video">
+-                        <canvas id="totalYieldChartCanvas" class="absolute inset-0"></canvas>
+-                    </div>
+-                </div>
++                    <div class="bg-white p-4 shadow rounded-lg">
++                        <h3 class="text-lg font-bold text-gray-700 mb-2">Total Yield</h3>
++                        <!-- Aspect Ratio Container for Responsive Chart -->
++                        <div wire:ignore class="relative aspect-video">
++                            <canvas id="totalYieldChartCanvas" class="absolute inset-0"></canvas>
++                        </div>
++                    </div>
+             @endif
+ 
+             @if(isset($timeComparisonChart))
+-                <div class="bg-white p-4 shadow rounded-lg">
+-                    <h3 class="text-lg font-bold text-gray-700 mb-2">Time Comparison</h3>
+-                    <div wire:ignore class="relative aspect-video">
+-                        <canvas id="timeComparisonChartCanvas" class="absolute inset-0"></canvas>
+-                    </div>
+-                </div>
++                    <div class="bg-white p-4 shadow rounded-lg">
++                        <h3 class="text-lg font-bold text-gray-700 mb-2">Time Comparison</h3>
++                        <div wire:ignore class="relative aspect-video">
++                            <canvas id="timeComparisonChartCanvas" class="absolute inset-0"></canvas>
++                        </div>
++                    </div>
+             @endif
+ 
+             @if(isset($fieldProductivityChart))
+-                <div class="bg-white p-4 shadow rounded-lg">
+-                    <h3 class="text-lg font-bold text-gray-700 mb-2">Field Results</h3>
+-                    <div wire:ignore class="relative aspect-video">
+-                        <canvas id="fieldProductivityChartCanvas" class="absolute inset-0"></canvas>
+-                    </div>
+-                </div>
++                    <div class="bg-white p-4 shadow rounded-lg">
++                        <h3 class="text-lg font-bold text-gray-700 mb-2">Field Results</h3>
++                        <div wire:ignore class="relative aspect-video">
++                            <canvas id="fieldProductivityChartCanvas" class="absolute inset-0"></canvas>
++                        </div>
++                    </div>
+             @endif
+ 
+             @if(isset($cropDistributionChart))
+-                <div class="bg-white p-4 shadow rounded-lg">
+-                    <h3 class="text-lg font-bold text-gray-700 mb-2">Crops</h3>
+-                    <div wire:ignore class="relative aspect-video">
+-                        <canvas id="cropDistributionChartCanvas" class="absolute inset-0"></canvas>
+-                    </div>
+-                </div>
++                    <div class="bg-white p-4 shadow rounded-lg">
++                        <h3 class="text-lg font-bold text-gray-700 mb-2">Crops</h3>
++                        <div wire:ignore class="relative aspect-video">
++                            <canvas id="cropDistributionChartCanvas" class="absolute inset-0"></canvas>
++                        </div>
++                    </div>
+             @endif
+ 
+         </div>
+-
+         <!-- Harvest Records Table -->
+         <div class="bg-white p-4 shadow rounded-lg">
+             <h3 class="text-xl font-bold mb-4 text-gray-800">Harvest Records</h3>
+@@ -226,36 +215,6 @@
+                     });
+                     @endif
+ 
+-                    @if(isset($timeToHarvestChart) && isset($timeToHarvestChart['labels']) && count($timeToHarvestChart['labels']) > 0)
+-                    createChart("timeToHarvestChartCanvas", "line", {
+-                        labels: @json($timeToHarvestChart['labels']),
+-                        datasets: [
+-                            {
+-                                label: 'Actual Time-to-Harvest (days)',
+-                                data: @json($timeToHarvestChart['actual']),
+-                                borderColor: 'rgba(75, 192, 192, 1)',
+-                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+-                                borderWidth: 2,
+-                                fill: false,
+-                            },
+-                            {
+-                                label: 'Expected Time-to-Harvest (days)',
+-                                data: @json($timeToHarvestChart['expected']),
+-                                borderColor: 'rgba(255, 159, 64, 1)',
+-                                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+-                                borderWidth: 2,
+-                                fill: false,
+-                            }
+-                        ]
+-                    }, {
+-                        responsive: true,
+-                        maintainAspectRatio: false,
+-                        scales: {
+-                            x: { title: { display: true, text: 'Harvest Date' } },
+-                            y: { title: { display: true, text: 'Days' }, beginAtZero: true }
+-                        }
+-                    });
+-                    @endif
+ 
+                 }
+                 initCharts();

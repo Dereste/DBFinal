@@ -1,0 +1,298 @@
+Index: resources/views/livewire/report-generator.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/livewire/report-generator.blade.php b/resources/views/livewire/report-generator.blade.php
+--- a/resources/views/livewire/report-generator.blade.php	
++++ b/resources/views/livewire/report-generator.blade.php	(date 1741739029829)
+@@ -1,8 +1,7 @@
+-
+ @extends('layouts.app')
+ 
+ @section('content')
+-    <div x-data="reportGenerator()" class="p-6 bg-white shadow-md rounded-lg">
++    <div class="p-6 bg-white shadow-md rounded-lg">
+         <h2 class="text-2xl font-bold mb-6 text-gray-800">Report</h2>
+ 
+         <!-- Charts -->
+@@ -11,8 +10,8 @@
+                 <div class="bg-white p-4 shadow rounded-lg">
+                     <h3 class="text-lg font-bold text-gray-700 mb-2">Yield Trend & Seasonality</h3>
+                     <div class="flex justify-between mb-2">
+-                        <button @click="prevMonths" class="text-gray-700 px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">← Previous</button>
+-                        <button @click="nextMonths" class="text-gray-700 px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">Next →</button>
++                        <button id="prevMonths" class="text-gray-700 px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">← Previous</button>
++                        <button id="nextMonths" class="text-gray-700 px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">Next →</button>
+                     </div>
+                     <div wire:ignore class="relative aspect-video">
+                         <canvas id="yieldTrendChartCanvas" class="absolute inset-0"></canvas>
+@@ -49,7 +48,7 @@
+                 <div class="flex space-x-4">
+                     <div>
+                         <label for="cropFilter" class="block text-sm font-medium text-gray-700">Crop</label>
+-                        <select id="cropFilter" x-model="cropFilter" class="border p-2 rounded">
++                        <select id="cropFilter" class="border p-2 rounded">
+                             <option value="">All</option>
+                             @foreach($crops as $crop)
+                                 <option value="{{ $crop->CropID }}">{{ $crop->CropName }}</option>
+@@ -58,7 +57,7 @@
+                     </div>
+                     <div>
+                         <label for="fieldFilter" class="block text-sm font-medium text-gray-700">Field</label>
+-                        <select id="fieldFilter" x-model="fieldFilter" class="border p-2 rounded">
++                        <select id="fieldFilter" class="border p-2 rounded">
+                             <option value="">All</option>
+                             @foreach($fields as $field)
+                                 <option value="{{ $field->FieldID }}">{{ $field->Location }}</option>
+@@ -68,7 +67,7 @@
+                 </div>
+                 <div>
+                     <label for="sortOrder" class="block text-sm font-medium text-gray-700">Sort By</label>
+-                    <select id="sortOrder" x-model="sortOrder" class="border p-2 rounded">
++                    <select id="sortOrder" class="border p-2 rounded">
+                         <option value="DateHarvested">Date Harvested</option>
+                         <option value="DatePlanted">Date Planted</option>
+                         <option value="HarvestYield">Yield</option>
+@@ -80,72 +79,190 @@
+                 <table class="w-full border-collapse border border-gray-200 rounded-md">
+                     <thead>
+                     <tr class="bg-green-600 text-white">
+-                        <th class="p-3 border text-left cursor-pointer" @click="sortBy('CropName')">Name</th>
+-                        <th class="p-3 border text-left cursor-pointer" @click="sortBy('CropType')">Type</th>
+-                        <th class="p-3 border text-center cursor-pointer" @click="sortBy('DatePlanted')">Date Planted</th>
+-                        <th class="p-3 border text-center cursor-pointer" @click="sortBy('DateHarvested')">Harvested</th>
+-                        <th class="p-3 border text-center cursor-pointer" @click="sortBy('HarvestYield')">Yield</th>
+-                        <th class="p-3 border text-left cursor-pointer" @click="sortBy('Location')">Location</th>
++                        <th class="p-3 border text-left cursor-pointer" wire:click="sortBy('CropName')">Name</th>
++                        <th class="p-3 border text-left cursor-pointer" wire:click="sortBy('CropType')">Type</th>
++                        <th class="p-3 border text-center cursor-pointer" wire:click="sortBy('DatePlanted')">Date Planted</th>
++                        <th class="p-3 border text-center cursor-pointer" wire:click="sortBy('DateHarvested')">Harvested</th>
++                        <th class="p-3 border text-center cursor-pointer" wire:click="sortBy('HarvestYield')">Yield</th>
++                        <th class="p-3 border text-left cursor-pointer" wire:click="sortBy('Location')">Location</th>
+                     </tr>
+                     </thead>
+                     <tbody class="divide-y divide-gray-200">
+-                    <template x-for="harvest in filteredRecords" :key="harvest.id">
++                    @foreach($harvestRecords as $harvest)
+                         <tr class="hover:bg-gray-100">
+-                            <td class="p-3 border" x-text="harvest.crop.CropName"></td>
+-                            <td class="p-3 border" x-text="harvest.crop.CropType"></td>
+-                            <td class="p-3 border text-center" x-text="harvest.plantingRecord.DatePlanted"></td>
+-                            <td class="p-3 border text-center" x-text="harvest.DateHarvested"></td>
+-                            <td class="p-3 border text-center" x-text="harvest.HarvestYield"></td>
+-                            <td class="p-3 border" x-text="harvest.field.Location"></td>
++                            <td class="p-3 border">{{ $harvest->crop->CropName }}</td>
++                            <td class="p-3 border">{{ $harvest->crop->CropType }}</td>
++                            <td class="p-3 border text-center">{{ $harvest->plantingRecord->DatePlanted }}</td>
++                            <td class="p-3 border text-center">{{ $harvest->DateHarvested }}</td>
++                            <td class="p-3 border text-center">{{ $harvest->HarvestYield }}</td>
++                            <td class="p-3 border">{{ $harvest->field->Location }}</td>
+                         </tr>
+-                    </template>
++                    @endforeach
+                     </tbody>
+                 </table>
+             </div>
+         </div>
+-    </div>
+-
+-    @push('scripts')
+-        <script>
+-            function reportGenerator() {
+-                return {
+-                    cropFilter: '',
+-                    fieldFilter: '',
+-                    sortOrder: 'DateHarvested',
+-                    harvestRecords: @json($harvestRecords),
+-                    get filteredRecords() {
+-                        let records = this.harvestRecords;
++        @push('scripts')
++            <script>
++                document.addEventListener("DOMContentLoaded", function () {
++                    function getLivewireComponent() {
++                        const livewireElement = document.querySelector('[wire\\:id]');
++                        return livewireElement ? Livewire.find(livewireElement.getAttribute('wire:id')) : null;
++                    }
++
++                    document.getElementById("cropFilter").addEventListener("change", function() {
++                        const livewireComponent = getLivewireComponent();
++                        if (livewireComponent) {
++                            livewireComponent.set('cropFilter', this.value);
++                        }
++                    });
++
++                    document.getElementById("fieldFilter").addEventListener("change", function() {
++                        const livewireComponent = getLivewireComponent();
++                        if (livewireComponent) {
++                            livewireComponent.set('fieldFilter', this.value);
++                        }
++                    });
++
++                    document.getElementById("sortOrder").addEventListener("change", function() {
++                        const livewireComponent = getLivewireComponent();
++                        if (livewireComponent) {
++                            livewireComponent.set('sortOrder', this.value);
++                        }
++                    });
++
++                    // New event listeners and chart initialization
++                    let charts = {};
++                    let currentStartIndex = 0;
++                    const rangeSize = 12;
++                    let debounceTimeout;
++
++                    function createGradient(ctx, color) {
++                        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
++                        gradient.addColorStop(0, color.replace("1)", "0.6)"));
++                        gradient.addColorStop(1, color.replace("1)", "0)"));
++                        return gradient;
++                    }
++
++                    function createChart(canvasId, type, data, options) {
++                        let canvas = document.getElementById(canvasId);
++                        if (!canvas) return;
++                        let ctx = canvas.getContext("2d");
++
++                        if (charts[canvasId]) {
++                            charts[canvasId].destroy();
++                        }
++
++                        if (type === "line") {
++                            let color = 'rgba(75, 192, 192, 1)';
++                            data.datasets[0].backgroundColor = createGradient(ctx, color);
++                        }
++
++                        charts[canvasId] = new Chart(ctx, { type, data, options });
++
++                        if (canvasId === "yieldTrendChartCanvas") {
++                            setupSlider(charts[canvasId]);
++                        }
++                    }
+ 
+-                        if (this.cropFilter) {
+-                            records = records.filter(record => record.CropID == this.cropFilter);
+-                        }
++                    function setupSlider(chart) {
++                        let slider = document.getElementById("timeSlider");
++                        if (!slider) return;
++
++                        slider.addEventListener("input", function() {
++                            clearTimeout(debounceTimeout);
++                            debounceTimeout = setTimeout(() => {
++                                let index = parseInt(this.value);
++                                let label = chart.data.labels[index];
++
++                                chart.options.scales.x.min = label;
++                                chart.options.scales.x.max = chart.data.labels[index + 10] || chart.data.labels[chart.data.labels.length - 1];
++                                chart.update();
++                            }, 200);
++                        });
++                    }
+ 
+-                        if (this.fieldFilter) {
+-                            records = records.filter(record => record.FieldID == this.fieldFilter);
++                    function updateChartRange(direction = null) {
++                        let labels = @json($yieldTrendChart['labels']);
++                        let datasets = @json($yieldTrendChart['datasets']);
++
++                        if (direction === 'prev' && currentStartIndex > 0) {
++                            currentStartIndex -= rangeSize;
++                        } else if (direction === 'next' && currentStartIndex + rangeSize < labels.length) {
++                            currentStartIndex += rangeSize;
+                         }
+ 
+-                        return records.sort((a, b) => {
+-                            if (this.sortOrder === 'DateHarvested') {
+-                                return new Date(a.DateHarvested) - new Date(b.DateHarvested);
+-                            } else if (this.sortOrder === 'DatePlanted') {
+-                                return new Date(a.plantingRecord.DatePlanted) - new Date(b.plantingRecord.DatePlanted);
+-                            } else if (this.sortOrder === 'HarvestYield') {
+-                                return a.HarvestYield - b.HarvestYield;
++                        let endIndex = Math.min(currentStartIndex + rangeSize, labels.length);
++
++                        let filteredLabels = labels.slice(currentStartIndex, endIndex);
++                        let filteredDatasets = datasets.map(dataset => ({
++                            ...dataset,
++                            data: dataset.data.slice(currentStartIndex, endIndex)
++                        }));
++
++                        createChart("yieldTrendChartCanvas", "line", {
++                            labels: filteredLabels,
++                            datasets: filteredDatasets
++                        }, {
++                            responsive: true,
++                            maintainAspectRatio: false,
++                            scales: {
++                                x: { title: { display: true, text: 'Month' } },
++                                y: { title: { display: true, text: 'Yield (kg)' }, beginAtZero: true }
+                             }
+-                            return 0;
+                         });
+-                    },
+-                    sortBy(field) {
+-                        this.sortOrder = field;
+-                    },
+-                    prevMonths() {
+-                        // Implement previous months logic
+-                    },
+-                    nextMonths() {
+-                        // Implement next months logic
+                     }
+-                }
+-            }
+-        </script>
++
++                    document.getElementById("prevMonths").addEventListener("click", () => updateChartRange('prev'));
++                    document.getElementById("nextMonths").addEventListener("click", () => updateChartRange('next'));
++
++                    function initCharts() {
++                        updateChartRange();
++                        @if(isset($yieldTrendChart) && count($yieldTrendChart['labels']) > 0)
++                        createChart("yieldTrendChartCanvas", "line", {
++                            labels: @json($yieldTrendChart['labels']),
++                            datasets: @json($yieldTrendChart['datasets'])
++                        }, {
++                            responsive: true,
++                            maintainAspectRatio: false,
++                            scales: {
++                                x: { title: { display: true, text: 'Week' } },
++                                y: { title: { display: true, text: 'Yield (kg)' }, beginAtZero: true }
++                            }
++                        });
++                        @endif
++
++                        @if(isset($fieldProductivityChart) && isset($fieldProductivityChart['labels']) && count($fieldProductivityChart['labels']) > 0)
++                        createChart("fieldProductivityChartCanvas", "bar", {
++                            labels: @json($fieldProductivityChart['labels']),
++                            datasets: @json($fieldProductivityChart['datasets'])
++                        }, {
++                            responsive: true,
++                            maintainAspectRatio: false,
++                            scales: {
++                                x: { title: { display: true, text: 'Field Location' } },
++                                y: { title: { display: true, text: 'Total Yield (kg)' }, beginAtZero: true }
++                            }
++                        });
++                        @endif
++
++                        @if(isset($cropDistributionChart) && isset($cropDistributionChart['labels']) && count($cropDistributionChart['labels']) > 0)
++                        createChart("cropDistributionChartCanvas", "pie", {
++                            labels: @json($cropDistributionChart['labels']),
++                            datasets: @json($cropDistributionChart['datasets'])
++                        }, {
++                            responsive: true,
++                            maintainAspectRatio: false
++                        });
++                        @endif
++                    }
++
++                    initCharts();
++
++                    Livewire.hook('message.processed', () => {
++                        initCharts();
++                    });
++                });
++            </script>
+     @endpush
+ @endsection

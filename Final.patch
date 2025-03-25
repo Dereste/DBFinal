@@ -1,0 +1,79 @@
+Index: resources/views/livewire/crop-list.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/livewire/crop-list.blade.php b/resources/views/livewire/crop-list.blade.php
+--- a/resources/views/livewire/crop-list.blade.php	
++++ b/resources/views/livewire/crop-list.blade.php	(date 1742798229784)
+@@ -9,11 +9,9 @@
+         // Date Planted filters
+         datePlantedYear: '',
+         datePlantedMonth: '',
+-        datePlantedYears: [], // Dynamic year options
+         // Date Harvested filters
+         dateHarvestedYear: '',
+         dateHarvestedMonth: '',
+-        dateHarvestedYears: [], // Dynamic year options
+         // Numeric filters for quantity & yield
+         quantityMin: '',
+         quantityMax: '',
+@@ -24,23 +22,9 @@
+         locationFilter: '',
+         // Final list after filtering/sorting
+         sortedCrops: [],
+-
+-        // Fetch available years dynamically from the backend
+-        fetchYears() {
+-            fetch('/api/years')
+-                .then(response => response.json())
+-                .then(data => {
+-                    this.datePlantedYears = data.plantedYears;
+-                    this.dateHarvestedYears = data.harvestedYears;
+-                })
+-                .catch(error => console.error('Error fetching years:', error));
+-        },
+-
+         // init is called on page load
+         init() {
+             this.applyFilters();
+-            this.fetchYears(); // Fetch available years on component load
+-
+             // Listen for Livewire delete event
+             Livewire.on('plantingDeleted', id => {
+                 // Remove the deleted record from sortedCrops and crops
+@@ -48,7 +32,6 @@
+                 this.applyFilters(); // Reapply filters to update the UI
+             });
+         },
+-
+         // Main filtering & sorting function
+         applyFilters() {
+             let data = [...this.crops]; // shallow copy of the raw data
+@@ -144,7 +127,6 @@
+             }
+             this.sortedCrops = data;
+         },
+-
+         // Helper function to toggle sorting on a field
+         sortBy(field) {
+             if (this.sortKey === field) {
+@@ -157,8 +139,7 @@
+         }
+      }">
+ 
+-
+-<!-- Page Title -->
++    <!-- Page Title -->
+     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+         <i class="fas fa-seedling text-green-600"></i> Crop List
+     </h2>
+@@ -207,7 +188,7 @@
+             <label class="block text-sm font-semibold mb-1"><i class="fas fa-calendar-check"></i> Harvested Year</label>
+             <select x-model="dateHarvestedYear" @change="applyFilters()" class="border p-2 rounded w-full">
+                 <option value="">All</option>
+-                <template x-for="year in dateHarvestedYears" :key="year">
++                <template x-for="year in [2023, 2024]" :key="year">
+                     <option :value="year" x-text="year"></option>
+                 </template>
+             </select>

@@ -1,0 +1,17 @@
+Index: app/Models/PlantingRecord.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/Models/PlantingRecord.php b/app/Models/PlantingRecord.php
+--- a/app/Models/PlantingRecord.php	
++++ b/app/Models/PlantingRecord.php	(date 1740469376345)
+@@ -13,7 +13,7 @@
+     protected static function booted()
+     {
+         static::created(function ($planting) {
+-            $planting->cropStatusHistories()->create([
++            $planting->cropStatusHistory()->create([
+                 'Status' => 'Growing', // Or 'Planted', but 'Growing' makes sense
+                 'StatusDate' => $planting->DatePlanted,
+                 'Notes' => 'Automatically marked as growing upon planting.',

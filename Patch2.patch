@@ -1,0 +1,19 @@
+Index: resources/views/layouts/app.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/layouts/app.blade.php b/resources/views/layouts/app.blade.php
+--- a/resources/views/layouts/app.blade.php	
++++ b/resources/views/layouts/app.blade.php	(date 1740483277340)
+@@ -81,8 +81,8 @@
+ 
+ 
+             <li>
+-                <a href="{{ route('fields') }}"
+-                   class="flex items-center gap-3 text-base font-medium {{ request()->routeIs('fields') ? 'text-green-600' : 'hover:text-green-600' }}">
++                <a href="{{ route('field-list') }}"
++                   class="flex items-center gap-3 text-base font-medium {{ request()->routeIs('field-list') ? 'text-green-600' : 'hover:text-green-600' }}">
+                     <span>🌱</span> Land Plot Management
+                 </a>
+             </li>

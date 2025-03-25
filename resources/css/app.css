@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .sidebar-link {
+        @apply flex items-center space-x-2 text-gray-700 px-4 py-2 rounded-lg transition-all duration-200;
+    }
+
+    .sidebar-link:hover, .sidebar-link.active {
+        @apply bg-gray-100 text-green-600;
+    }
+
+    .sidebar-sub-link {
+        @apply flex items-center space-x-2 text-gray-500 px-4 py-1 rounded-lg transition-all duration-200;
+    }
+
+    .sidebar-sub-link:hover, .sidebar-sub-link.active {
+        @apply bg-gray-100 text-green-600;
+    }
+}
+
+

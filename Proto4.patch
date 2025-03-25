@@ -1,0 +1,26 @@
+Index: app/Livewire/PlantingRecordList.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/Livewire/PlantingRecordList.php b/app/Livewire/PlantingRecordList.php
+--- a/app/Livewire/PlantingRecordList.php	
++++ b/app/Livewire/PlantingRecordList.php	(date 1741599294628)
+@@ -36,6 +36,17 @@
+             'quantity' => 'required|numeric',
+         ]);
+ 
++        $existingPlanting = PlantingRecord::where('FieldID', $this->fieldId)
++            ->whereDoesntHave('cropStatusHistory', function ($query) {
++                $query->whereIn('Status', ['Harvested', 'Failed', 'Destroyed']);
++            })
++            ->first();
++
++        if ($existingPlanting) {
++            $this->addError('fieldId', 'This field is already occupied by an active crop.');
++            return;
++        }
++
+         PlantingRecord::create([
+             'CropID'      => $this->cropId,
+             'FieldID'     => $this->fieldId,

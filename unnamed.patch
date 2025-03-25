@@ -1,0 +1,12 @@
+Index: public/hot
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/hot b/public/hot
+new file mode 100644
+--- /dev/null	(date 1740466993421)
++++ b/public/hot	(date 1740466993421)
+@@ -0,0 +1,1 @@
++http://[::1]:5173
+\ No newline at end of file

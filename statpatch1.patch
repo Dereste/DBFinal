@@ -1,0 +1,17 @@
+Index: app/Livewire/ReportGenerator.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/Livewire/ReportGenerator.php b/app/Livewire/ReportGenerator.php
+--- a/app/Livewire/ReportGenerator.php	
++++ b/app/Livewire/ReportGenerator.php	(date 1741419680659)
+@@ -10,7 +10,7 @@
+ class ReportGenerator extends Component
+ {
+     use WithPagination;
+-
++    public $startDate, $endDate;
+     public $totalYield = 0;
+     public $totalYieldChart = [];
+     public $timeComparisonChart = [];
